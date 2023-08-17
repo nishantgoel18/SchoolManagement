@@ -13,6 +13,11 @@
     <strong>School:</strong>
     <%= link_to student.school.name, student.school %>
   </p>
+  
+  <p>
+    <strong>Batches:</strong>
+    <%= student.batches.map{|s| link_to(s.name, [s.school, s])}.to_sentence.html_safe %>
+  </p>  
 
   <p>
     <strong>Classmates:</strong>
