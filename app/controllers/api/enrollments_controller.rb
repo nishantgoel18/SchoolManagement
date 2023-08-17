@@ -7,7 +7,7 @@ module Api
     # GET /enrollmentes or /enrollmentes.json
     def index
       authorize Enrollment
-      @enrollments = Enrollment.includes(batch: :course, :student)
+      @enrollments = Enrollment.includes({batch: :course}, :student)
       @enrollments = @enrollments.where(batch_id: @school.batches)
       @enrollments = @enrollments.where(user_id: current_user.id) if current_user.is_student?
     end

@@ -1,7 +1,7 @@
 collection @enrollments
 attributes :id, :status
 
-child :user do
+child :student do
   attributes :id, :name, :email, :type
 end
 
