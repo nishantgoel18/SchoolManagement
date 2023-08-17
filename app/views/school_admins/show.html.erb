@@ -1,0 +1,9 @@
+ 
+
+<%= render @school_admin %>
+
+<div>
+  <%= link_to "Edit this school admin", edit_school_admin_path(@school_admin) if policy(:school_admin).edit? %> <%= link_to "Back to school admins", school_admins_path if policy(:school_admin).index? %>
+
+  <%= button_to "Destroy this school admin", @school_admin, method: :delete if policy(:school_admin).destroy? %>
+</div>

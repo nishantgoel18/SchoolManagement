@@ -1,0 +1,9 @@
+ 
+
+<%= render @student %>
+
+<div>
+  <%= link_to "Edit this student", edit_student_path(@student) if policy(:student).edit? %> <%= link_to "Back to students", students_path if policy(:student).index? %>
+
+  <%= button_to "Destroy this student", @student, method: :delete if policy(:student).destroy?%>
+</div>

@@ -1,0 +1,30 @@
+<div id="<%= dom_id school %>">
+  <p>
+    <strong>Name:</strong>
+    <%= school.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= school.address %>
+  </p>
+
+  <p>
+    <strong>About:</strong>
+    <%= school.about %>
+  </p>
+
+  <p>
+    <strong>School Admins</strong>
+    <%= school.school_admins.map{|sa| link_to(sa.name, sa)}.to_sentence.html_safe %>
+  </p>
+  <p>
+    <strong>Batches</strong>
+    <%= school.batches.map{|b| link_to(b.name, [school, b])}.to_sentence.html_safe %>
+  </p>
+
+  <p>
+    <strong>Courses</strong>
+    <%= school.courses.map{|c| link_to(c.name, c)}.to_sentence.html_safe %>
+  </p>
+</div>

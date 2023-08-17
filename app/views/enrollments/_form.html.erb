@@ -1,0 +1,43 @@
+<%= form_with(model: [@school, enrollment]) do |form| %>
+  <% if enrollment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+        <% enrollment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :school, style: "display: block" %>
+    <%= @school.name %>
+    <%= form.hidden_field :school_id, value: @school.id %>
+  </div>
+
+  <div>
+    <%= form.label :batch, style: "display: block" %>
+    <%= form.select :batch_id, options_from_collection_for_select(@school.batches, :id, :name, enrollment.batch_id), class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :student, style: "display: block" %>
+    <%= form.select :user_id, options_from_collection_for_select(@school.students, :id, :name, enrollment.user_id), class: 'form-control' %>
+  </div>
+
+
+  <% if current_user.is_student? %>
+    <%= form.hidden_field :status, value: 'Pending' %>
+  <% else %>
+    <div>
+      <%= form.label :status, style: "display: block" %>
+      <%= form.select :status, options_for_select(['Accepted', 'Denied', 'Pending'], enrollment.status) %>
+    </div>
+  <% end -%> 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

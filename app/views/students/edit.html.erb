@@ -1,0 +1,9 @@
+<h1>Editing student</h1>
+
+<%= render "form", student: @student %>
+
+<br>
+
+<div>
+  <%= link_to "Show this student", @student if policy(:student).show? %> <%= link_to "Back to students", students_path if policy(:student).index? %>
+</div>

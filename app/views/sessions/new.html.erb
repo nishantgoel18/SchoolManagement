@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-lg-6">
+      
+      <div class="card card-default">
+        
+        <div class="card-body">
+          <h2 class="card-title">User Log in</h2>
+          <%= form_tag('/login', method: :post) do |f| %>
+            <div class="field">
+              <%= label_tag :email %><br />
+              <%= email_field_tag :email, '', autofocus: true, class: 'form-control' %><br />
+            </div>
+
+            <div class="field">
+              <%= label_tag :password %><br />
+              <%= password_field_tag :password, '', autocomplete: "off", class: 'form-control' %><br />
+            </div>
+
+
+            <div class="actions">
+              <%= submit_tag "Log in", class: 'btn btn-success' %>
+            </div>
+          <% end %>
+          <br />
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

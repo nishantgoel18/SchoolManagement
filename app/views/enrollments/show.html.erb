@@ -1,0 +1,9 @@
+ 
+
+<%= render @enrollment %>
+
+<div>
+  <%= link_to "Edit this enrollment", edit_school_enrollment_path(@school, @enrollment) if policy(:enrollment).edit? %> <%= link_to "Back to enrollments", school_enrollments_path(@school) if policy(:enrollment).index? %>
+
+  <%= button_to "Destroy this enrollment", [@school,@enrollment], method: :delete if policy(:enrollment).destroy? %>
+</div>

@@ -1,0 +1,16 @@
+<div id="<%= dom_id enrollment %>">
+  <p>
+    <strong>Batch:</strong>
+    <%= link_to enrollment.batch.name, [@school, enrollment.batch] %>
+  </p>
+
+  <p>
+    <strong>Student:</strong>
+    <%= link_to enrollment.student.name, enrollment.student %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= enrollment.status %>
+  </p>
+</div>

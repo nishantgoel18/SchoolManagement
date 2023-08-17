@@ -1,0 +1,9 @@
+<h1>Editing enrollment</h1>
+
+<%= render "form", enrollment: @enrollment %>
+
+<br>
+
+<div>
+  <%= link_to "Show this enrollment", [@school, @enrollment] if policy(:enrollment).show? %> <%= link_to "Back to enrollmentes", school_enrollments_path(@school) if policy(:enrollment).index? %>
+</div>

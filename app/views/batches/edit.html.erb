@@ -1,0 +1,9 @@
+<h1>Editing batch</h1>
+
+<%= render "form", batch: @batch %>
+
+<br>
+
+<div>
+  <%= link_to "Show this batch", [@school, @batch] if policy(:batch).show? %> <%= link_to "Back to batches", school_batches_path(@school) if policy(:batch).index? %>
+</div>

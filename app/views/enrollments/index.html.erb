@@ -1,0 +1,14 @@
+ 
+
+<h1>Enrollments</h1>
+
+<div id="enrollments">
+  <% @enrollments.each do |enrollment| %>
+    <%= render enrollment %>
+    <p>
+      <%= link_to "Show this enrollment", [@school, enrollment] %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'Home', home_url %> <%= link_to "New enrollment", new_school_enrollment_path(@school) if policy(:enrollment).new? %>

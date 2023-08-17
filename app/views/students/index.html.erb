@@ -1,0 +1,14 @@
+ 
+
+<h1>Students</h1>
+
+<div id="students">
+  <% @students.each do |student| %>
+    <%= render student %>
+    <p>
+      <%= link_to "Show this student", student if policy(:student).show? %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'Home', home_url %> <%= link_to "New student", new_student_path if policy(:student).new? %>

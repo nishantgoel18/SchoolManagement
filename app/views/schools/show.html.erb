@@ -1,0 +1,9 @@
+ 
+
+<%= render @school %>
+
+<div>
+  <%= link_to "Edit this school", edit_school_path(@school) if policy(:school).edit? %> <%= link_to 'View Batches', school_batches_url(@school) if policy(:batch).index? %> <%= link_to 'Manage Enrollments', school_enrollments_url(@school) %> <%= link_to "Back to schools", schools_path %>
+
+  <%= button_to "Destroy this school", @school, method: :delete if policy(:school).destroy? %>
+</div>

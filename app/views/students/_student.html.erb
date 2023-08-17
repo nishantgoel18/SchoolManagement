@@ -1,0 +1,21 @@
+<div id="<%= dom_id student %>">
+  <p>
+    <strong>Name:</strong>
+    <%= student.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= student.email %>
+  </p>
+
+  <p>
+    <strong>School:</strong>
+    <%= link_to student.school.name, student.school %>
+  </p>
+
+  <p>
+    <strong>Classmates:</strong>
+    <%= student.classmates.map{|s| link_to(s.name, s)}.to_sentence.html_safe %>
+  </p>
+</div>

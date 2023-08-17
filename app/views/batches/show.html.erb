@@ -1,0 +1,9 @@
+ 
+
+<%= render @batch %>
+
+<div>
+  <%= link_to "Edit this batch", edit_school_batch_path(@school, @batch) if policy(:batch).edit? %> <%= link_to "Back to batches", school_batches_path(@school) if policy(:batch).index? %>
+
+  <%= button_to "Destroy this batch", [@school,@batch], method: :delete if policy(:batch).destroy? %>
+</div>

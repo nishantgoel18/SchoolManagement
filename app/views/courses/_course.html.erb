@@ -1,0 +1,17 @@
+<div id="<%= dom_id course %>">
+  <p>
+    <strong>Name:</strong>
+    <%= course.name %>
+  </p>
+
+  <p>
+    <strong>Batches</strong>
+    <%= course.school.batches.map{|b| link_to(b.name, [course.school, b])}.to_sentence.html_safe %>
+  </p>
+
+  <p>
+    <strong>School:</strong>
+    <%= link_to course.school.name, course.school %>
+  </p>
+
+</div>

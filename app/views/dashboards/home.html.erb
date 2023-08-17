@@ -1,0 +1,11 @@
+ 
+
+<h1>Welcome to School Management</h1>
+<p>Logged in as <%= "#{current_user.name} (#{current_user.class.name})" %>. <%= link_to('Logout', '/logout', method: :delete) %></p>
+<p>Choose one of the options</p>
+<ul>
+  <li><%= link_to 'Schools', schools_path %></li>
+  <li><%= link_to 'School Admins', school_admins_path %></li>
+  <li><%= link_to 'Courses', courses_path %></li>
+  <li><%= link_to 'Students', students_path %></li>
+</ul>

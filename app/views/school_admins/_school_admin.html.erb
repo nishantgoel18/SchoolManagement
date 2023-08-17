@@ -1,0 +1,17 @@
+<div id="<%= dom_id school_admin %>">
+  <p>
+    <strong>Name:</strong>
+    <%= school_admin.name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= school_admin.email %>
+  </p>
+
+  <p>
+    <strong>School:</strong>
+    <%= link_to school_admin.school.name, school_admin.school %>
+  </p>
+
+</div>
