@@ -18,4 +18,17 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new', as: :new_login
   post '/login' => 'sessions#create', as: :login_user
   delete '/logout' => 'sessions#destroy', as: :logout_user
+
+  namespace :api, defaults: { format: 'json' } do
+    resources :schools do
+      resources :batches
+      resources :enrollments
+    end
+    
+    resources :courses
+    resources :students
+    resources :school_admins
+    
+    post '/login', to: 'sessions#login'
+  end
 end

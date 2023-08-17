@@ -135,6 +135,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
+    oj (3.16.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -145,6 +146,8 @@ GEM
       nio4r (~> 2.0)
     pundit (2.3.1)
       activesupport (>= 3.0.0)
+    rabl (0.16.1)
+      activesupport (>= 2.3.14)
     racc (1.7.1)
     rack (2.2.8)
     rack-test (2.1.0)
@@ -251,9 +254,11 @@ DEPENDENCIES
   factory_bot_rails
   importmap-rails
   jbuilder
+  oj
   pry-rails
   puma (~> 5.0)
   pundit (~> 2.3)
+  rabl
   rails (~> 7.0.6)
   redis (~> 4.0)
   rspec-rails (~> 5.1, >= 5.1.2)
