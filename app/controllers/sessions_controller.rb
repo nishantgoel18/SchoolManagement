@@ -5,14 +5,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate?(params[:password])
-      session[:token] = user.authentication_token
+      cookies[:token] = user.authentication_token
       redirect_to '/', notice: 'Successfully Logged In!'
     else
       redirect_to '/login', notice: "Invalid Email or Password" 
     end
   end
   def destroy
-    session[:token] = nil
+    cookies[:token] = nil
     redirect_to '/login', notice: "Successfully Logged Out!"
   end
 

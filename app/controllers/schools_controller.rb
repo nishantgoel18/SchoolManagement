@@ -22,6 +22,7 @@ class SchoolsController < ApplicationController
 
   # GET /schools/1/edit
   def edit
+    authorize @school
   end
 
   # POST /schools or /schools.json

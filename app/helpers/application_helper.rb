@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def current_user
-    @current_user ||= User.find_by(authentication_token: session[:token]) if session[:token] 
+    @current_user ||= User.find_by(authentication_token: cookies[:token]) if cookies[:token] 
   end
   
   def authenticate_user!
