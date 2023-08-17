@@ -55,7 +55,7 @@ RSpec.describe "Batches", type: :request do
       expect(response.body).to include('New batch')
     end
 
-    it "should not successfully render the new school page when opened with student user" do
+    it "should not successfully render the new batch page when opened with student user" do
       cookies[:token] = student.authentication_token
       get new_school_batch_url(school)
 
@@ -78,7 +78,7 @@ RSpec.describe "Batches", type: :request do
       expect(response.body).to include('Editing batch')
     end
 
-    it "should not successfully render the edit school page when opened with student user" do
+    it "should not successfully render the edit batch page when opened with student user" do
       cookies[:token] = student.authentication_token
       get edit_school_batch_url(school, batch)
       expect(response.body).not_to include('Editing batch')
@@ -112,7 +112,7 @@ RSpec.describe "Batches", type: :request do
   end
 
   describe "PATCH /update" do
-    context "when admin user tries to update a school with valid parameters" do
+    context "when admin user tries to update a batch with valid parameters" do
       let(:new_attributes) {
         {
           name:'English Batch',
@@ -121,14 +121,14 @@ RSpec.describe "Batches", type: :request do
         }
       }
 
-      it "updates the requested school" do
+      it "updates the requested batch" do
         cookies[:token] = admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: new_attributes }
         batch.reload
         expect(batch.name).to eql "English Batch"
       end
 
-      it "redirects to the school" do
+      it "redirects to the batch" do
         cookies[:token] = admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: new_attributes }
         batch.reload
@@ -137,14 +137,14 @@ RSpec.describe "Batches", type: :request do
     end
 
     context "with invalid parameters" do
-      it "does not update the school" do
+      it "does not update the batch" do
         cookies[:token] = admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: invalid_attributes }
         expect(response.body).to include('1 error prohibited this batch from being saved')
       end
     end
 
-    context "when school admin user tries to update a school with valid parameters" do
+    context "when school admin user tries to update a batch with valid parameters" do
       let(:new_attributes) {
         {
           name:'English Batch',
@@ -153,14 +153,14 @@ RSpec.describe "Batches", type: :request do
         }
       }
 
-      it "updates the requested school" do
+      it "updates the requested batch" do
         cookies[:token] = school_admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: new_attributes }
         batch.reload
         expect(batch.name).to eql "English Batch"
       end
 
-      it "redirects to the school" do
+      it "redirects to the batch" do
         cookies[:token] = school_admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: new_attributes }
         batch.reload
@@ -169,7 +169,7 @@ RSpec.describe "Batches", type: :request do
     end
 
     context "with invalid parameters" do
-      it "does not update the school" do
+      it "does not update the batch" do
         cookies[:token] = school_admin.authentication_token
         patch school_batch_url(school, batch), params: { batch: invalid_attributes }
         expect(response.body).to include('1 error prohibited this batch from being saved')
