@@ -32,10 +32,8 @@ class SchoolAdminsController < ApplicationController
     respond_to do |format|
       if @school_admin.save
         format.html { redirect_to school_admin_url(@school_admin), notice: "SchoolAdmin was successfully created." }
-        format.json { render :show, status: :created, location: @school_admin }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @school_admin.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,10 +44,8 @@ class SchoolAdminsController < ApplicationController
     respond_to do |format|
       if @school_admin.update(school_admin_params)
         format.html { redirect_to school_admin_url(@school_admin), notice: "SchoolAdmin was successfully updated." }
-        format.json { render :show, status: :ok, location: @school_admin }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @school_admin.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +57,6 @@ class SchoolAdminsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to school_admins_url, notice: "SchoolAdmin was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

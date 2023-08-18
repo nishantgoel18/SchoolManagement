@@ -34,10 +34,8 @@ class EnrollmentsController < ApplicationController
     respond_to do |format|
       if @enrollment.save
         format.html { redirect_to school_enrollment_url(@school, @enrollment), notice: "Enrollment was successfully created." }
-        format.json { render :show, status: :created, location: @enrollment }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,10 +46,8 @@ class EnrollmentsController < ApplicationController
     respond_to do |format|
       if @enrollment.update(enrollment_params)
         format.html { redirect_to school_enrollment_url(@school, @enrollment), notice: "Enrollment was successfully updated." }
-        format.json { render :show, status: :ok, location: @enrollment }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +59,6 @@ class EnrollmentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to school_enrollments_url(@school), notice: "Enrollment was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

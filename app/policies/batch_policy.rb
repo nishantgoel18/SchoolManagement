@@ -9,7 +9,7 @@ class BatchPolicy
   end
 
   def index?
-    user.is_admin? or user.is_school_admin?
+    true
   end
 
   def show?

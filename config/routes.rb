@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "dashboards#home"
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/login' => 'sessions#new', as: :new_login
+  post '/login' => 'sessions#create', as: :login_user
+  delete '/logout' => 'sessions#destroy', as: :logout_user
 end

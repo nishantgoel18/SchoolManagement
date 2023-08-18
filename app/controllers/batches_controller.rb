@@ -33,10 +33,8 @@ class BatchesController < ApplicationController
     respond_to do |format|
       if @batch.save
         format.html { redirect_to school_batch_url(@school, @batch), notice: "Batch was successfully created." }
-        format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,10 +45,8 @@ class BatchesController < ApplicationController
     respond_to do |format|
       if @batch.update(batch_params)
         format.html { redirect_to school_batch_url(@school, @batch), notice: "Batch was successfully updated." }
-        format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,7 +58,6 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to school_batches_url(@school), notice: "Batch was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
